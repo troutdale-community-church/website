@@ -9,11 +9,8 @@ import Button from "@components/Button/Button.astro";
 import { Switch } from "@components/starwind/switch";
 import bestValueImage from "@images/best-value.png";
 import { getLocaleFromUrl } from "@js/localeUtils";
-import { useTranslations } from "@js/translationUtils";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-
-import { getLocalizedRoute } from "@/js/translationUtils";
 
 interface planInfo {
 	name: string; // plan name
@@ -138,7 +135,6 @@ const pricingData: pricingTable = {
 };
 
 const currLocale = getLocaleFromUrl(Astro.url);
-const t = useTranslations(currLocale);
 ---
 
 <div class="bg-base-950 text-base-100 dark:bg-base-900">
@@ -274,7 +270,7 @@ const t = useTranslations(currLocale);
 											<div class="mt-auto">
 												<Button
 													variant={plan.featured === true ? "primary" : "secondary"}
-													href={getLocalizedRoute(currLocale, "/signup")}
+													href={"/signup"}
 													class={`mt-4`}
 												>
 													Get Started

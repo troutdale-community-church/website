@@ -6,8 +6,6 @@ import SocialIcon from "@components/SocialIcon/SocialIcon.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
-
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
 
@@ -19,12 +17,12 @@ const today = new Date();
 		<div class="mt-6 flex flex-wrap items-center justify-between gap-6">
 			<SiteLogo />
 			<div class="flex flex-wrap gap-x-10">
-				<FooterLink href={getLocalizedRoute(currLocale, "/overview")}>Overview</FooterLink>
-				<FooterLink href={getLocalizedRoute(currLocale, "/blog")}>Blog</FooterLink>
-				<FooterLink href={getLocalizedRoute(currLocale, "/elements")}>Elements</FooterLink>
-				<FooterLink href={getLocalizedRoute(currLocale, "/contact")}>Contact</FooterLink>
-				<FooterLink href={getLocalizedRoute(currLocale, "/terms")}>Terms</FooterLink>
-				<FooterLink href={getLocalizedRoute(currLocale, "/privacy-policy")}>Privacy</FooterLink>
+				<FooterLink href={"/overview"}>Overview</FooterLink>
+				<FooterLink href={"/blog"}>Blog</FooterLink>
+				<FooterLink href={"/elements"}>Elements</FooterLink>
+				<FooterLink href={"/contact"}>Contact</FooterLink>
+				<FooterLink href={"/terms"}>Terms</FooterLink>
+				<FooterLink href={"/privacy-policy"}>Privacy</FooterLink>
 			</div>
 		</div>
 	</div>

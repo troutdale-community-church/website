@@ -9,8 +9,6 @@ import ThemeToggle from "@components/ThemeToggle/ThemeToggle.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
-
 import NavDropdownToggle from "./NavDropdown/NavDropdownToggle.astro";
 
 const currLocale = getLocaleFromUrl(Astro.url);
@@ -69,7 +67,7 @@ import { locales } from "@config/siteSettings.json";
 					<Button
 						variant="ghost"
 						class="nav__link--base relative mr-2 hidden items-center gap-1.5 rounded-sm px-4 py-2 transition duration-200 md:flex"
-						href={getLocalizedRoute(currLocale, "/login")}
+						href={"/login"}
 					>
 						Login
 					</Button>

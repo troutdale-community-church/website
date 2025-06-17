@@ -13,8 +13,6 @@ import { getLocaleFromUrl } from "@js/localeUtils";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
-
 const currLocale = getLocaleFromUrl(Astro.url);
 ---
 
@@ -47,7 +45,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 								/>
 								<a
 									class="description hover:text-primary-500 dark:hover:text-primary-500 relative z-10 flex items-center font-semibold tracking-tight transition duration-200"
-									href={getLocalizedRoute(currLocale, "/blog/tsconfig-paths-setup")}
+									href={"/blog/tsconfig-paths-setup"}
 								>
 									<span class="mr-2.5">
 										<span class="sr-only">TSConfig path aliases setup</span>
@@ -78,7 +76,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 								</p>
 								<a
 									class="description hover:text-primary-500 dark:hover:text-primary-500 relative z-10 flex items-center font-semibold tracking-tight transition duration-200"
-									href={getLocalizedRoute(currLocale, "/blog/tsconfig-paths-setup")}
+									href={"/blog/tsconfig-paths-setup"}
 								>
 									<span class="mr-2.5">
 										<span class="sr-only">TSConfig path aliases setup</span>
@@ -110,7 +108,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 						</p>
 						<a
 							class="description hover:text-primary-500 dark:hover:text-primary-500 relative z-10 mb-4 flex items-center font-semibold tracking-tight transition duration-200"
-							href={getLocalizedRoute(currLocale, "/blog/tsconfig-paths-setup")}
+							href={"/blog/tsconfig-paths-setup"}
 						>
 							<span class="mr-2.5">
 								<span class="sr-only">TSConfig path aliases setup</span>
@@ -128,7 +126,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 							/>
 							<a
 								class="from-gradient-1 via-gradient-2 to-gradient-3 focus:ring-primary-300 mb-6 flex w-full items-center rounded-lg bg-linear-40 px-3.5 py-5 font-medium tracking-tight text-white transition duration-500 focus:ring-4"
-								href={getLocalizedRoute(currLocale, "/blog/tsconfig-paths-setup")}
+								href={"/blog/tsconfig-paths-setup"}
 							>
 								<div class="mr-3 inline-block">
 									<Icon name="nova/circle-check" aria-hidden="true" class="size-6" />

@@ -9,8 +9,6 @@ import { getLocaleFromUrl } from "@js/localeUtils";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
-
 interface Props {
 	badge: string; // small badge
 	title: string; // larger title
@@ -54,7 +52,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 			<div class="z-20 mt-8 flex">
 				<Button
 					variant="ghost"
-					href={getLocalizedRoute(currLocale, "/contact")}
+					href={"/contact"}
 					arrow="right"
 					class="pl-0"
 				>

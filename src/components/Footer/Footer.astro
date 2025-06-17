@@ -6,8 +6,6 @@ import SocialIcon from "@components/SocialIcon/SocialIcon.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
-
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
 
@@ -36,15 +34,15 @@ const today = new Date();
 							</h3>
 							<ul class="flex flex-col gap-5">
 								<li>
-									<FooterLink href={getLocalizedRoute(currLocale, "/")}>Landing 1</FooterLink>
+									<FooterLink href={"/"}>Landing 1</FooterLink>
 								</li>
 								<li>
-									<FooterLink href={getLocalizedRoute(currLocale, "/examples/landing2")}
+									<FooterLink href={"/examples/landing2"}
 										>Landing 2</FooterLink
 									>
 								</li>
 								<li>
-									<FooterLink href={getLocalizedRoute(currLocale, "/examples/landing3")}
+									<FooterLink href={"/examples/landing3"}
 										>Landing 3</FooterLink
 									>
 								</li>
@@ -58,22 +56,22 @@ const today = new Date();
 							</h3>
 							<ul class="flex flex-col gap-5">
 								<li>
-									<FooterLink href={getLocalizedRoute(currLocale, "/examples/features")}
+									<FooterLink href={"/examples/features"}
 										>Features</FooterLink
 									>
 								</li>
 								<li>
-									<FooterLink href={getLocalizedRoute(currLocale, "/examples/pricing")}
+									<FooterLink href={"/examples/pricing"}
 										>Pricing</FooterLink
 									>
 								</li>
 								<li>
-									<FooterLink href={getLocalizedRoute(currLocale, "/examples/testimonials-faq")}
+									<FooterLink href={"/examples/testimonials-faq"}
 										>Testimonial & FAQ</FooterLink
 									>
 								</li>
 								<li>
-									<FooterLink href={getLocalizedRoute(currLocale, "/examples/hero-sections")}
+									<FooterLink href={"/examples/hero-sections"}
 										>Hero</FooterLink
 									>
 								</li>
@@ -87,16 +85,16 @@ const today = new Date();
 							</h3>
 							<ul class="flex flex-col gap-5">
 								<li>
-									<FooterLink href={getLocalizedRoute(currLocale, "/contact")}>Contact</FooterLink>
+									<FooterLink href={"/contact"}>Contact</FooterLink>
 								</li>
 								<li>
-									<FooterLink href={getLocalizedRoute(currLocale, "/login")}>Login</FooterLink>
+									<FooterLink href={"/login"}>Login</FooterLink>
 								</li>
 								<li>
-									<FooterLink href={getLocalizedRoute(currLocale, "/signup")}>Signup</FooterLink>
+									<FooterLink href={"/signup"}>Signup</FooterLink>
 								</li>
 								<li>
-									<FooterLink href={getLocalizedRoute(currLocale, "/password-reset")}
+									<FooterLink href={"/password-reset"}
 										>Password Reset</FooterLink
 									>
 								</li>

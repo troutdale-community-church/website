@@ -10,14 +10,10 @@ import person1 from "@images/ashton_blackwell.jpg";
 import person3 from "@images/nic_fassbender.jpg";
 import person2 from "@images/nicola_harris.jpg";
 import { getLocaleFromUrl } from "@js/localeUtils";
-import { useTranslations } from "@js/translationUtils";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
-
 const currLocale = getLocaleFromUrl(Astro.url);
-const t = useTranslations(currLocale);
 ---
 
 <section id="hero-side" class="bg-base-800 dark:bg-base-950 mt-[4.5rem] overflow-clip">
@@ -50,7 +46,7 @@ const t = useTranslations(currLocale);
 					<h1
 						class="text-base-900 dark:text-base-100 mb-6 font-serif text-4xl tracking-tighter text-pretty md:text-6xl"
 					>
-						{t("hero_text")}
+						Hero text
 					</h1>
 				</div>
 				<p
@@ -59,7 +55,7 @@ const t = useTranslations(currLocale);
 					data-aos-delay=".1"
 					data-aos-trigger="#hero-side"
 				>
-					{t("hero_description")}
+					Hero description
 				</p>
 				<div
 					class="mt-6 flex flex-wrap gap-4"
@@ -67,7 +63,7 @@ const t = useTranslations(currLocale);
 					data-aos-delay=".2"
 					data-aos-trigger="#hero-side"
 				>
-					<Button variant="primary" href={getLocalizedRoute(currLocale, "/signup")}>
+					<Button variant="primary" href={"/signup"}>
 						Try 14 Days Free Trial
 					</Button>
 					<Button

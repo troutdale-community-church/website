@@ -9,14 +9,10 @@ import VideoButton from "@components/Button/VideoButton.astro";
 import person2 from "@images/avatar4.jpg";
 import person1 from "@images/revenue.png";
 import { getLocaleFromUrl } from "@js/localeUtils";
-import { useTranslations } from "@js/translationUtils";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
-
 const currLocale = getLocaleFromUrl(Astro.url);
-const t = useTranslations(currLocale);
 ---
 
 <section id="hero-center-images" class="dark:bg-base-950 overflow-clip bg-white pt-20">
@@ -28,7 +24,7 @@ const t = useTranslations(currLocale);
 					data-aos="fade-left"
 					data-aos-trigger="#hero-center-images"
 				>
-					{t("hero_text")}
+					Hero text
 				</h1>
 				<p
 					class="mx-auto mb-10 max-w-md"
@@ -36,7 +32,7 @@ const t = useTranslations(currLocale);
 					data-aos-trigger="#hero-center-images"
 					data-aos-delay="0.15"
 				>
-					{t("hero_description")}
+					Hero description
 				</p>
 				<div
 					class="mb-6 flex justify-center"
@@ -44,7 +40,7 @@ const t = useTranslations(currLocale);
 					data-aos-trigger="#hero-center-images"
 					data-aos-delay="0.3"
 				>
-					<Button variant="primary" href={getLocalizedRoute(currLocale, "/signup")} class="py-4"
+					<Button variant="primary" href={"/signup"} class="py-4"
 						>Try 14 Days Free Trial</Button
 					>
 				</div>

@@ -3,8 +3,6 @@ import Button from "@components/Button/Button.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { Icon } from "astro-icon/components";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
-
 const currLocale = getLocaleFromUrl(Astro.url);
 ---
 
@@ -39,7 +37,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 					/>
 					<a
 						class="text-primary-500 hover:text-primary-600 inline-block px-4 pb-4 font-medium tracking-tight transition duration-200 sm:absolute sm:top-1/2 sm:right-4 sm:-translate-y-1/2 sm:transform sm:p-0"
-						href={getLocalizedRoute(currLocale, "/password-reset")}>Forgot Password?</a
+						href={"/password-reset"}>Forgot Password?</a
 					>
 				</label>
 			</div>
@@ -74,7 +72,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 		<span>Don’t have an account?</span>
 		<a
 			class="text-primary-500 hover:text-primary-600 whitespace-nowrap transition duration-200"
-			href={getLocalizedRoute(currLocale, "/signup")}>Create Free Account</a
+			href={"/signup"}>Create Free Account</a
 		>
 	</p>
 </div>

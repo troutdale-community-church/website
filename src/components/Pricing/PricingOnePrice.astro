@@ -7,14 +7,9 @@
 import Badge from "@components/Badge/Badge.astro";
 import Button from "@components/Button/Button.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
-import { useTranslations } from "@js/translationUtils";
 import { Icon } from "astro-icon/components";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
-
 const currLocale = getLocaleFromUrl(Astro.url);
-const t = useTranslations(currLocale);
-
 interface pricingItem {
 	name: string; // plan name
 	description: string; // plan description
@@ -113,7 +108,7 @@ const pricingData: pricingItem = {
 								))
 							}
 						</ul>
-						<Button variant="outline" href={getLocalizedRoute(currLocale, "/signup")}>
+						<Button variant="outline" href={"/signup"}>
 							Try 14 Days Free Trial
 						</Button>
 						<!-- <a

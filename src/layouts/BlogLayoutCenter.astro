@@ -3,11 +3,8 @@ import Button from "@components/Button/Button.astro";
 import Category from "@components/Category/Category.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { formatDate, humanize, slugify } from "@js/textUtils";
-import { useTranslations } from "@js/translationUtils";
 import { Image } from "astro:assets";
 import { type CollectionEntry, getEntries } from "astro:content";
-
-import { getLocalizedRoute } from "@/js/translationUtils";
 
 import BaseLayout from "./BaseLayout.astro";
 
@@ -20,7 +17,6 @@ const { post } = Astro.props as Props;
 const { title, description, authors, categories, pubDate, updatedDate, heroImage } = post.data;
 
 const currLocale = getLocaleFromUrl(Astro.url);
-const t = useTranslations(currLocale);
 const authorsData = await getEntries(authors);
 ---
 
@@ -97,7 +93,7 @@ const authorsData = await getEntries(authors);
 						updatedDate && (
 							<div class="mb-6 italic">
 								<time datetime={updatedDate.toISOString()}>
-									{t("updated")}: {formatDate(updatedDate, currLocale)}
+									Updated: {formatDate(updatedDate, currLocale)}
 								</time>
 							</div>
 						)
@@ -108,8 +104,8 @@ const authorsData = await getEntries(authors);
 
 					<!-- button to go back to all posts -->
 					<div class="mt-16 flex justify-center">
-						<Button variant="ghost" arrow="left" href={getLocalizedRoute(currLocale, "/blog")}>
-							{t("back_to_all_posts")}
+						<Button variant="ghost" arrow="left" href={"/blog"}>
+							Back to all posts
 						</Button>
 					</div>
 				</div>

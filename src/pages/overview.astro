@@ -4,8 +4,6 @@ import Button from "@components/Button/Button.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
-
 const currLocale = getLocaleFromUrl(Astro.url);
 
 // styles
@@ -25,11 +23,11 @@ const overview__link =
 				<!-- Landing pages -->
 				<div class="flex flex-col">
 					<h3 class="dark:text-base-300 mt-6 mb-4 text-xl font-bold md:text-2xl">Landing Pages</h3>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/")}>Landing 1</a>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/examples/landing2")}
+					<a class={overview__link} href={"/"}>Landing 1</a>
+					<a class={overview__link} href={"/examples/landing2"}
 						>Landing 2</a
 					>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/examples/landing3")}
+					<a class={overview__link} href={"/examples/landing3"}
 						>Landing 3</a
 					>
 				</div>
@@ -39,32 +37,32 @@ const overview__link =
 					<h3 class="dark:text-base-300 mt-6 mb-4 text-xl font-bold md:text-2xl">Blog</h3>
 					<a
 						class={overview__link}
-						href={getLocalizedRoute(currLocale, "/blog/tsconfig-paths-setup")}>Blog Post 1</a
+						href={"/blog/tsconfig-paths-setup"}>Blog Post 1</a
 					>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/examples/blog-post-2")}
+					<a class={overview__link} href={"/examples/blog-post-2"}
 						>Blog Post 2</a
 					>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/categories")}
+					<a class={overview__link} href={"/categories"}
 						>Categories</a
 					>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/blog")}>Blog Index</a>
+					<a class={overview__link} href={"/blog"}>Blog Index</a>
 				</div>
 
 				<!-- Sections -->
 				<div class="flex flex-col">
 					<h3 class="dark:text-base-300 mt-6 mb-4 text-xl font-bold md:text-2xl">Sections</h3>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/examples/features")}
+					<a class={overview__link} href={"/examples/features"}
 						>Feature Sections</a
 					>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/examples/pricing")}
+					<a class={overview__link} href={"/examples/pricing"}
 						>Pricing Sections</a
 					>
 					<a
 						class={overview__link}
-						href={getLocalizedRoute(currLocale, "/examples/testimonials-faq")}
+						href={"/examples/testimonials-faq"}
 						>Testimonial and FAQ Sections</a
 					>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/examples/hero-sections")}
+					<a class={overview__link} href={"/examples/hero-sections"}
 						>Hero Sections</a
 					>
 				</div>
@@ -73,10 +71,10 @@ const overview__link =
 				<div class="flex flex-col">
 					<h3 class="dark:text-base-300 mt-6 mb-4 text-xl font-bold md:text-2xl">Forms</h3>
 
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/contact")}>Contact</a>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/login")}>Login</a>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/signup")}>Signup</a>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/password-reset")}
+					<a class={overview__link} href={"/contact"}>Contact</a>
+					<a class={overview__link} href={"/login"}>Login</a>
+					<a class={overview__link} href={"/signup"}>Signup</a>
+					<a class={overview__link} href={"/password-reset"}
 						>Password Reset</a
 					>
 				</div>
@@ -84,16 +82,16 @@ const overview__link =
 				<!-- Other -->
 				<div class="flex flex-col">
 					<h3 class="dark:text-base-300 mt-6 mb-4 text-xl font-bold md:text-2xl">Other Pages</h3>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/elements")}>MDX Pages</a>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/about")}>About</a>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/privacy-policy")}
+					<a class={overview__link} href={"/elements"}>MDX Pages</a>
+					<a class={overview__link} href={"/about"}>About</a>
+					<a class={overview__link} href={"/privacy-policy"}
 						>Privacy Policy</a
 					>
-					<a class={overview__link} href={getLocalizedRoute(currLocale, "/terms")}>Terms of Use</a>
+					<a class={overview__link} href={"/terms"}>Terms of Use</a>
 					<a class={overview__link} href="/not-a-link/">404</a>
 					<a
 						class={overview__link}
-						href={getLocalizedRoute(currLocale, "/rss.xml")}
+						href={"/rss.xml"}
 						target="_blank"
 						rel="noopener noreferrer">RSS Feed</a
 					>
@@ -116,7 +114,7 @@ const overview__link =
 				<div class="text-center">
 					<p class="description text-sm font-medium lg:text-base">
 						We use cookies to improve your experience on this site. To learn more, see our <a
-							href={getLocalizedRoute(currLocale, "/privacy-policy")}
+							href={"/privacy-policy"}
 							class="text-base-700 decoration-primary-500 hover:text-primary-500 dark:text-base-300 dark:hover:text-primary-500 underline transition"
 							>Privacy Policy</a
 						>.

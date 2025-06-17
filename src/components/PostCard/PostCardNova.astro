@@ -6,8 +6,6 @@ import { Image } from "astro:assets";
 import { type CollectionEntry, getEntries } from "astro:content";
 import { Icon } from "astro-icon/components";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
-
 interface Props {
 	post: CollectionEntry<"blog">;
 	showDescription?: boolean;
@@ -24,7 +22,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 
 <article class=`${className}` {...rest}>
 	<a
-		href={getLocalizedRoute(currLocale, `/blog/${post.id}/`)}
+		href={`/blog/${post.id}/`}
 		class="flex aspect-[16/10] max-h-96 shrink-0 justify-center overflow-hidden rounded-md sm:justify-normal"
 	>
 		<figure>
@@ -46,7 +44,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 		<!-- title -->
 		<div class="mt-3">
 			<a
-				href={getLocalizedRoute(currLocale, `/blog/${post.id}/`)}
+				href={`/blog/${post.id}/`}
 				class="decoration-primary-500 hover:underline"
 			>
 				<h2 class="dark:text-base-100 text-lg font-semibold md:text-xl">
@@ -72,7 +70,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 		<!-- read post button -->
 		<!-- <div class="mt-3">
       <a
-        href={getLocalizedRoute(currLocale, `/blog/${post.id}/`)}
+        href={`/blog/${post.id}/`}
         class="flex items-center gap-1 font-semibold text-primary-500 transition-colors hover:text-primary-600"
       >
         Read Post

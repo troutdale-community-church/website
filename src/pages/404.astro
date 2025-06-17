@@ -6,8 +6,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
-
 const currLocale = getLocaleFromUrl(Astro.url);
 ---
 
@@ -40,7 +38,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 							Something went wrong, so this page is broken.
 						</p>
 						<div class="flex flex-wrap justify-center md:justify-start">
-							<Button variant="primary" href={getLocalizedRoute(currLocale, "/")}
+							<Button variant="primary" href={"/"}
 								>Go back to homepage</Button
 							>
 						</div>
