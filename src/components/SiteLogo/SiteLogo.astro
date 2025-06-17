@@ -1,0 +1,29 @@
+---
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { getTranslatedData } from "@js/translationUtils";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import { getLocalizedRoute } from "@/js/translationUtils";
+
+const currLocale = getLocaleFromUrl(Astro.url);
+const siteData = getTranslatedData("siteData", currLocale);
+
+import logo from "@images/nova-logo.png";
+---
+
+<a
+	class="text-base-800 dark:text-base-200 flex items-center gap-1 align-middle text-2xl font-bold"
+	href={getLocalizedRoute(currLocale)}
+>
+	<!-- <Image
+    src={logo}
+    alt="Nova logo"
+    loading="eager"
+    height={90}
+    class="h-12 w-auto"
+    aria-label="Nova logo"
+  /> -->
+	<Icon name="nova/nova-logo" class="size-12" aria-hidden="true" />
+	<p class="">{siteData.name}</p>
+</a>
