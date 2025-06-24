@@ -26,6 +26,7 @@ jobs:
         with:
           PATTERNS: |
             +(src)/**/*
+            *(public)/**/*
           FILES: |
             package.json
             package-lock.yaml
