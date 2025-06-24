@@ -2,9 +2,9 @@ import { type SiteDataProps } from "../types/configDataTypes";
 
 // Update this file with your site specific information
 const siteData: SiteDataProps = {
-	name: "Nova",
+	name: "Troutdale Community Church",
 	// Your website's title and description (meta fields)
-	title: "Nova - a SaaS theme and landing page crafted with Astro and Tailwind CSS",
+	title: "Troutdale Community Church",
 	description:
 		"Create an amazing website for your SaaS clients with our beautiful website theme designed using Astro and Tailwind CSS. Perfect for freelancers, developers, startups, and personal use.",
 
