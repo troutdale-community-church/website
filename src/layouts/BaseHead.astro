@@ -25,9 +25,6 @@ const {
 } = Astro.props as Props;
 
 import InterVariable from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2";
-
-import Chopin from "/font/Chopin-Light.ttf";
-import Classica from "/font/Classica-Bold.ttf";
 ---
 
 <meta charset="utf-8" />
@@ -35,8 +32,8 @@ import Classica from "/font/Classica-Bold.ttf";
 
 <!-- local font preload for better performance -->
 <link rel="preload" href={InterVariable} as="font" type="font/woff2" crossorigin="anonymous" />
-<link rel="preload" href={Classica} as="font" type="font/ttf" crossorigin="anonymous" />
-<link rel="preload" href={Chopin} as="font" type="font/ttf" crossorigin="anonymous" />
+<link rel="preload" href="/fonts/Classica-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+<link rel="preload" href="/fonts/Chopin-Light.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
 
 <!-- Sentient Font -->
 <link rel="preconnect" href="https://api.fontshare.com" />
