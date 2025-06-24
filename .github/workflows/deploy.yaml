@@ -17,30 +17,12 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      diff: ${{ steps.git-diff.outputs.diff }}
     
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-
-      - uses: technote-space/get-diff-action@v6
-        id: git-diff
-        with:
-          PATTERNS: |
-            +(src)/**/*
-            *(public)/**/*
-            *(workflows)/**/*
-          FILES: |
-            package.json
-            package-lock.yaml
-            astro.config.mjs
-            keystatic.config.mjs
-            starwind.config.json
-            tsconfig.json
             
       - name: Install, build, and upload your site
-        if: steps.git-diff.outputs.diff
         uses: withastro/action@v4
         # with:
           # path: . # The root location of your Astro project inside the repository. (optional)
@@ -49,7 +31,6 @@ jobs:
 
   deploy:
     needs: build
-    if: needs.build.outputs.diff
 
     runs-on: ubuntu-latest
 
