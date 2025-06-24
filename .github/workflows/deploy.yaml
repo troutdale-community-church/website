@@ -29,6 +29,8 @@ jobs:
         with:
           PATTERNS: |
             +(src)/**/*
+            *(public)/**/*
+            *(workflows)/**/*
           FILES: |
             package.json
             package-lock.yaml
