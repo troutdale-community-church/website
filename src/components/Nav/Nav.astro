@@ -36,7 +36,7 @@ import { locales } from "@config/siteSettings.json";
 
 				<!-- desktop nav menu -->
 				<div class="flex flex-auto justify-end">
-					<nav class="hidden items-center md:flex">
+					<nav class="hidden items-center lg:flex">
 						<ul class="flex h-fit items-center px-4">
 							{
 								// if dropdown exists, setup the dropdown, otherwise it is just a link
@@ -58,13 +58,13 @@ import { locales } from "@config/siteSettings.json";
 						</ul>
 					</nav>
 
-					<ThemeToggle class="my-auto -ml-4 hidden md:block" />
+					<ThemeToggle class="my-auto -ml-4 hidden lg:block" />
 
 					<!-- spacer if desired -->
 					<!-- <div class="mr-2 ml-4 my-2 border-l border-base-300 dark:border-base-700">
           </div> -->
 
-					<Button
+					<!-- <Button
 						variant="ghost"
 						class="nav__link--base relative mr-2 hidden items-center gap-1.5 rounded-sm px-4 py-2 transition duration-200 md:flex"
 						href={"/login"}
@@ -78,12 +78,12 @@ import { locales } from "@config/siteSettings.json";
 						href="https://cosmicthemes.com/themes/nova/"
 					>
 						Get Nova
-					</Button>
+					</Button> -->
 
 					{locales.length > 1 && <LanguageSelect class="ml-4 hidden md:block" />}
 
 					<!-- mobile nav menu, only load on small screens where it is visible -->
-					<div class="md:hidden">
+					<div class="lg:hidden">
 						<MobileNav />
 					</div>
 				</div>
