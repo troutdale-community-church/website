@@ -3,19 +3,33 @@
  * 
  * These are in a separate file so it can be imported into <style> tags in .astro components
  */
+
+
 @theme {
+	--color-cloud-burst-50: #f0f7fe;
+	--color-cloud-burst-100: #ddecfc;
+	--color-cloud-burst-200: #c3defa;
+	--color-cloud-burst-300: #9acbf6;
+	--color-cloud-burst-400: #6aaef0;
+	--color-cloud-burst-500: #478fea;
+	--color-cloud-burst-600: #3273de;
+	--color-cloud-burst-700: #295ecc;
+	--color-cloud-burst-800: #274da6;
+	--color-cloud-burst-900: #254383;
+	--color-cloud-burst-950: #1c2c53;
+
 	/* primary colors. Can generate with https://uicolors.app/create, then convert to oklch with https://oklch.com/ */
-	--color-primary-50: var(--color-indigo-50);
-	--color-primary-100: var(--color-indigo-100);
-	--color-primary-200: var(--color-indigo-200);
-	--color-primary-300: var(--color-indigo-300);
-	--color-primary-400: var(--color-indigo-400);
-	--color-primary-500: var(--color-indigo-500);
-	--color-primary-600: var(--color-indigo-600);
-	--color-primary-700: var(--color-indigo-700);
-	--color-primary-800: var(--color-indigo-800);
-	--color-primary-900: var(--color-indigo-900);
-	--color-primary-950: var(--color-indigo-950);
+	--color-primary-50: var(--color-cloud-burst-50);
+	--color-primary-100: var(--color-cloud-burst-100);
+	--color-primary-200: var(--color-cloud-burst-200);
+	--color-primary-300: var(--color-cloud-burst-300);
+	--color-primary-400: var(--color-cloud-burst-400);
+	--color-primary-500: var(--color-cloud-burst-500);
+	--color-primary-600: var(--color-cloud-burst-600);
+	--color-primary-700: var(--color-cloud-burst-700);
+	--color-primary-800: var(--color-cloud-burst-800);
+	--color-primary-900: var(--color-cloud-burst-900);
+	--color-primary-950: var(--color-cloud-burst-950);
 
 	/* base colors */
 	--color-base-50: var(--color-gray-50);
