@@ -15,13 +15,13 @@ import { config } from "@keystatic/core";
 
 export default config({
 	// works in local mode in dev, then cloud mode in prod
-	storage: import.meta.env.DEV === true ? { kind: "local" } : { kind: "cloud" },
+	storage: import.meta.env.DEV === true ? { kind: "local" } : { kind: 'cloud'	},
 	// cloud deployment is free to sign up (up to 3 users per team)
 	// docs: https://keystatic.com/docs/cloud
 	// create a Keystatic Cloud account here: https://keystatic.cloud/
-	cloud: { project: "cosmic-themes/nova" },
+	cloud: { project: "troutdale-com-church/website" },
 	ui: {
-		brand: { name: "Cosmic Themes" },
+		brand: { name: "Troutdale Community Church" },
 	},
 	collections: {
 		blogEN: Collections.Blog("en"),
