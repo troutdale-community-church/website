@@ -71,7 +71,6 @@ The source files have the following general structure. Note that not all files a
 ├── .gitignore
 ├── .prettierrc.mjs
 ├── astro.config.mjs
-├── netlify.toml
 ├── package.json
 ├── package-lock.json
 ├── README.md

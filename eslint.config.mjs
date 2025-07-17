@@ -74,7 +74,6 @@ export default defineConfig([
 			"scripts/",
 			"public/pagefind/",
 			".github/",
-			".netlify/",
 			".changeset/",
 		],
 	},

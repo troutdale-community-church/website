@@ -1,0 +1,51 @@
+---
+/**
+ * * These are alternating side cards with titles, text, and images
+ * Recommend using 2 or 3 cards in a row
+ */
+import Badge from "@components/Badge/Badge.astro";
+import FeatureCard from "@components/FeatureCard/FeatureCardSideImage.astro";
+import image2 from "@images/living-room.jpg";
+import image1 from "@images/paint-swatches.jpg";
+import { Icon } from "astro-icon/components";
+
+interface FeatureItem {
+	image: ImageMetadata; // an imported image
+	title: string;
+	items: string[]; // list of items that will have check marks next to
+}
+
+const featureData: FeatureItem[] = [
+	{
+		image: image1,
+		title: "We love Jesus, honor the Word of God, and love one another. You are warmly welcomed to join us.",
+		items: [
+		],
+	},
+	{
+		image: image2,
+		title: "Guaranteed satisfaction",
+		items: [
+			
+		],
+	},
+];
+---
+
+<section id="feature-side-image" class="my-12 overflow-hidden py-12">
+	<div class="site-container">
+		<div class="flex flex-col gap-16 md:gap-24">
+			{
+				featureData.map((feature, idx) => (
+					<FeatureCard
+						title={feature.title}
+						items={feature.items}
+						image={feature.image}
+						imageSide={idx % 2 === 0 ? "right" : "left"}
+						idx={idx}
+					/>
+				))
+			}
+		</div>
+	</div>
+</section>

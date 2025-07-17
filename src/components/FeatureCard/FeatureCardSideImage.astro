@@ -10,10 +10,10 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 interface Props {
-	badge: string; // small badge
+	badge?: string; // small badge
 	title: string; // larger title
 	items: string[]; // list of items that will have check marks next to
-	href: string; // link to learn more
+	href?: string; // link to learn more
 	image: ImageMetadata; // an imported image
 	imageSide: "left" | "right";
 	idx: number; // determines which "blob" icon svg to use. There are 4 options (0-3)
@@ -33,8 +33,8 @@ const currLocale = getLocaleFromUrl(Astro.url);
 	<!-- text -->
 	<div class=`${imageSide === "left" ? "md:order-last": ""} col-span-1 flex items-center`>
 		<div>
-			<Badge>{badge}</Badge>
-			<h2 class="h2">{title}</h2>
+			{badge ? (<Badge>{badge}</Badge>) : <></>}
+			<h2 class="h2" set:html={title} />
 			<ul class="mt-6">
 				{
 					items.map((item) => (
@@ -49,16 +49,18 @@ const currLocale = getLocaleFromUrl(Astro.url);
 					))
 				}
 			</ul>
+			{href ? (
 			<div class="z-20 mt-8 flex">
 				<Button
 					variant="ghost"
-					href={"/contact"}
+					href={href}
 					arrow="right"
 					class="pl-0"
 				>
 					Get a free quote
 				</Button>
 			</div>
+			) : <></>}
 		</div>
 	</div>
 
