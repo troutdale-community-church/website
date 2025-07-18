@@ -137,7 +137,8 @@
 	}
 
 	.site-container {
-		@apply mx-auto max-w-[180rem] px-4;
+		/* @apply mx-auto max-w-[180rem] px-4; */
+		@apply mx-auto max-w-[90rem] px-4;
 	}
 
 	/* used for various form inputs */

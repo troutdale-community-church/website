@@ -76,7 +76,7 @@ const whatToExpect: WhatToExpect[] = [
 <BaseLayout title={siteData.title} description={siteData.description}>
 	<section class="site-container mx-auto mt-16 py-24">
 		<div class="mb-16 text-center">
-			<h1 class="h1 mb-4">We love Jesus, honor the Word of God, and love one another.</h1>
+			<h1 class="h1 mb-4">We love Jesus, honor the Word of God, <br />and love one another.</h1>
 			<p class="description mb-8 text-lg md:text-xl">
 				<span class="italic">Him we proclaim, warning everyone and teaching everyone with all wisdom, that we may present everyone mature in Christ.</span><br />
 				Colossians 1:28
@@ -93,38 +93,54 @@ const whatToExpect: WhatToExpect[] = [
 	</section>
 
 	<section id="feature-cards-small" class="bg-base-200 dark:bg-base-900 py-24 md:py-28">
-		<div class="site-container relative">
+		<div class="site-container">
 			<div class="mx-auto mb-16 text-center md:max-w-2xl" data-aos="fade-up">
 				<h2 class="h2 mb-4">Worship Service</h2>
 			</div>
-			<div class="-m-8 flex flex-wrap" id="feature-steps-trigger"></div>
-				{
-					serviceTimes.map((feature, idx) => (
-						<div
-							class="w-full p-8"
-							data-aos="fade-right"
-							data-aos-trigger="#feature-steps-trigger"
-							data-aos-delay={0.25 * idx}
-						>
-							<div class="-m-8 flex flex-wrap">
-								<div class="flex-1 p-8">
-									<div class="md:max-w-md">
-										<h3 class="text-base-100 mb-4 text-xl font-semibold tracking-tight">
-											{feature.title}
-										</h3>
-										<p class="text-base-400 dark:text-base-300 text-xl tracking-tight">
-											{
-												feature.description.map((desc) => (
-													<p>{desc}</p>
-												))
-											}
-										</p>
+			<div class="-m-8 grid md:grid-cols-2 lg:items-center">
+				<div class="w-full p-8">
+					<div class="md:max-w-lg">
+						<div class="-m-8 flex flex-wrap" id="feature-steps-trigger">
+							{
+								serviceTimes.map((feature, idx) => (
+									<div
+										class="w-full p-8"
+										data-aos="fade-right"
+										data-aos-trigger="#feature-steps-trigger"
+										data-aos-delay={0.25 * idx}
+									>
+										<div class="-m-8 flex flex-wrap">
+											<div class="flex-1 p-8">
+												<div class="md:max-w-md">
+													<h3 class="text-base-900 dark:text-base-100 mb-4 text-xl font-semibold tracking-tight">
+														{feature.title}
+													</h3>
+													<p class="text-base-400 dark:text-base-300 text-xl tracking-tight">
+														{
+															feature.description.map((desc) => (
+																<p>{desc}</p>
+															))
+														}
+													</p>
+												</div>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
+								))
+							}
 						</div>
-					))
-				}
+					</div>
+				</div>
+				<div class="w-full p-8">
+					<Image
+						src={churchMap}
+						class="mx-auto transform rounded-2xl transition duration-500 hover:-translate-y-1"
+						alt="map to Troutdale Community Church"
+						loading="lazy"
+						width={510}
+						densities={[1.5, 2]}
+					/>
+				</div>
 			</div>
 		</div>
 	</section>
