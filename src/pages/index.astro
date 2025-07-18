@@ -1,79 +1,159 @@
 ---
-import CtaCardLeft from "@components/Cta/CtaCardLeft.astro";
-import CtaCenter from "@components/Cta/CtaCenter.astro";
-import CtaImage from "@components/Cta/CtaImage.astro";
-import FaqAccordions from "@components/Faq/FaqAccordions.astro";
-import FaqCards from "@components/Faq/FaqCards.astro";
-import FeatureHome from "@components/Feature/FeatureHome.astro";
-import FeatureCardsMedium from "@components/Feature/FeatureCardsMedium.astro";
-import FeatureCardsSmall from "@components/Feature/FeatureCardsSmall.astro";
-import FeatureCardsSmall2 from "@components/Feature/FeatureCardsSmall2.astro";
-import FeatureCodeToggle from "@components/Feature/FeatureCodeToggle.astro";
-import FeatureIntegrations from "@components/Feature/FeatureIntegrations.astro";
-import FeatureNumbers from "@components/Feature/FeatureNumbers.astro";
-import FeatureHomeSideImage from "@components/Feature/FeatureHomeSideImage.astro";
-import FeatureSimple from "@components/Feature/FeatureSimple.astro";
-import FeatureSteps from "@components/Feature/FeatureSteps.astro";
-import FeatureThreeImage from "@components/Feature/FeatureThreeImage.astro";
-import FeatureVideo from "@components/Feature/FeatureVideo.astro";
-import HeroCentered from "@components/Hero/HeroCentered.astro";
-import HeroCenteredImages from "@components/Hero/HeroCenteredImages.astro";
-import HeroSideImage from "@components/Hero/HeroSideImage.astro";
-import LogoCloudMarquee from "@components/LogoCloud/LogoCloudMarquee.astro";
-import LogoCloudStatic from "@components/LogoCloud/LogoCloudStatic.astro";
-import PricingFourCards from "@components/Pricing/PricingFourCards.astro";
-import PricingOnePrice from "@components/Pricing/PricingOnePrice.astro";
-import PricingTable from "@components/Pricing/PricingTable.astro";
-import PricingThreeCards from "@components/Pricing/PricingThreeCards.astro";
-import TestimonialsColumns from "@components/Testimonials/TestimonialsColumns.astro";
-import TestimonialsRows from "@components/Testimonials/TestimonialsRows.astro";
-import TestimonialsSwiperQuotes from "@components/Testimonials/TestimonialsSwiperQuotes.astro";
+import FeatureCardSmall from "@components/FeatureCard/FeatureCardSmall.astro";
+import mainImage from "@images/church-main-guitar.jpg";
+import churchMap from "@images/paint-swatches.jpg";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
+interface ServiceTime {
+	title: string; // the number to showcase
+	description: string[]; // description below the number
+}
+
+
+const serviceTimes: ServiceTime[] = [
+	{
+		title: "Sunday Morning",
+		description: [
+			"11:00 am to 12:00 pm"
+		],
+	},
+	{
+		title: "Location",
+		description: [
+			"921 Buxton Ave",
+			"Troutdale, Oregon, 97060",
+		],
+	},
+]
+
+interface WhatToExpect {
+	icon: string;
+	title: string;
+	text: string;
+}
+
+const whatToExpect: WhatToExpect[] = [
+	{
+        title: 'Friendly Believers',
+        text: 'You will be greeted by a friendly group of believers.',
+        icon: 'tabler/friends',
+      },
+      {
+        title: 'Worship Music',
+        text:
+          'Worship will include a mixture of old hymns, modern hymns, and select contemporary worship music.',
+        icon: 'tabler/music',
+      },
+      {
+        title: 'Expository Teaching',
+        text:
+          'The preaching will be expository from the Bible, and you will be challenged, encouraged, and edified.',
+        icon: 'tabler/bible',
+      },
+      {
+        title: "Children's Church",
+        text: "Children's Church is offered for children up to 5th grade.",
+        icon: 'tabler/monkeybar',
+      },
+      {
+        title: 'Casual Dress',
+        text: 'Most members wear casual to dressy-casual attire.',
+        icon: 'tabler/shirt-sport',
+      },
+      {
+        title: 'Fellowship',
+        text: 'After service, we invite you to stick around and fellowship with one another.',
+        icon: 'tabler/heart-handshake',
+      },
+];
 ---
 
 <BaseLayout title={siteData.title} description={siteData.description}>
-	<!-- <HeroSideImage /> -->
-	<!-- <HeroBgImage /> -->
-	<!-- <HeroCentered /> -->
+	<section class="site-container mx-auto mt-16 py-24">
+		<div class="mb-16 text-center">
+			<h1 class="h1 mb-4">We love Jesus, honor the Word of God, and love one another.</h1>
+			<p class="description mb-8 text-lg md:text-xl">
+				<span class="italic">Him we proclaim, warning everyone and teaching everyone with all wisdom, that we may present everyone mature in Christ.</span><br />
+				Colossians 1:28
+			</p>
+		</div>
 
-	<!-- <LogoCloudStatic /> -->
-	<!-- <LogoCloudMarquee /> -->
+		<Image
+			src={mainImage}
+			alt="logo"
+			loading="lazy"
+			height={800}
+			class="z-10 mx-auto rounded-xl"
+		/>
+	</section>
 
-	<!-- <FeatureHome /> -->
+	<section id="feature-cards-small" class="bg-base-200 dark:bg-base-900 py-24 md:py-28">
+		<div class="site-container relative">
+			<div class="mx-auto mb-16 text-center md:max-w-2xl" data-aos="fade-up">
+				<h2 class="h2 mb-4">Worship Service</h2>
+			</div>
+			<div class="-m-8 flex flex-wrap" id="feature-steps-trigger"></div>
+				{
+					serviceTimes.map((feature, idx) => (
+						<div
+							class="w-full p-8"
+							data-aos="fade-right"
+							data-aos-trigger="#feature-steps-trigger"
+							data-aos-delay={0.25 * idx}
+						>
+							<div class="-m-8 flex flex-wrap">
+								<div class="flex-1 p-8">
+									<div class="md:max-w-md">
+										<h3 class="text-base-100 mb-4 text-xl font-semibold tracking-tight">
+											{feature.title}
+										</h3>
+										<p class="text-base-400 dark:text-base-300 text-xl tracking-tight">
+											{
+												feature.description.map((desc) => (
+													<p>{desc}</p>
+												))
+											}
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
 
-	<!-- <FeatureThreeImage /> -->
-
-	<!-- <FeatureCardsMedium /> -->
-
-	<!-- <FeatureCardsSmall2 /> -->
-	<!-- <FeatureCardsSmall /> -->
-	<!-- <FeatureVideo /> -->
-
-	<!-- <ServicesSideImage /> -->
-	<!-- <ServicesIcon /> -->
-
-	<FeatureHomeSideImage />
-
-	<!-- <TestimonialsSwiperQuotes /> -->
-	<!-- <TestimonialsColumns /> -->
-	<!-- <TestimonialsRows /> -->
-
-	<!-- <FeatureToggleImage /> -->
-
-	<!-- <PricingTable /> -->
-	<!-- <PricingThreeCards /> -->
-	<!-- <PricingFourCards /> -->
-	<!-- <PricingOnePrice /> -->
-
-	<!-- <CtaCardSplit /> -->
-	<!-- <CtaCardLeft /> -->
-	<!-- <CtaCenter /> -->
-
-	<!-- <FaqAccordions /> -->
-	<!-- <FaqCards /> -->
+	<section id="feature-cards-small" class="py-24 md:py-28">
+		<div class="site-container relative">
+			<div class="mx-auto mb-16 text-center md:max-w-2xl" data-aos="fade-up">
+				<h2 class="h2 mb-4">What to Expect</h2>
+				<p class="description text-lg text-pretty md:text-xl">
+					When you visit one of our services, you will notice that we like to keep things simple. We are not about flashy church 
+					growth strategies or entertaining our members. We are about knowing God, making Him known, and enjoying the common salvation 
+					we have with the saints of Christ. We are a church that holds to the inerrancy, infallibility, and sufficiency of Scripture. 
+					We invite you to come and worship with us.
+				</p>
+			</div>
+			<div id="trigger-small-cards" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				{
+					whatToExpect.map((feature, idx) => (
+						<FeatureCardSmall
+							title={feature.title}
+							text={feature.text}
+							icon={feature.icon}
+							data-aos="zoom-in"
+							data-aos-delay={0.15 * idx}
+							data-aos-trigger="#trigger-small-cards"
+						/>
+					))
+				}
+			</div>
+		</div>
+	</section>
 </BaseLayout>
