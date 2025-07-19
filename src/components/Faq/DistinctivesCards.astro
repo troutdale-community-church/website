@@ -3,33 +3,12 @@
  * * FAQ section columns (not accordions)
  */
 
-import { type FaqItem } from "@config/types/configDataTypes";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 import FaqCard from "./FaqCard.astro";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const distinctivesData = getTranslatedData("distinctivesData", currLocale);
-
-type FaqCols = FaqItem[];
-
-// array of columns for faq data
-const faqCols: FaqCols[] = [];
-let faqsPerCol = Math.floor(distinctivesData.length / 2);
-let remainder = distinctivesData.length % 2;
-
-// this assumes more than 2 items for FAQ...
-if (remainder === 0) {
-	// even split
-	faqCols[0] = distinctivesData.slice(0, faqsPerCol);
-	faqCols[1] = distinctivesData.slice(faqsPerCol, 2 * faqsPerCol);
-} else if (remainder === 1) {
-	// extra goes to first column
-	faqCols[0] = distinctivesData.slice(0, faqsPerCol + 1);
-	faqCols[1] = distinctivesData.slice(faqsPerCol + 1, 2 * faqsPerCol + 1);
-} else {
-	console.error("Something went wrong with the FAQ data in FaqCards.astro");
-}
 ---
 
 <section id="faq-cards" class="site-container py-24 md:py-28">
@@ -37,13 +16,11 @@ if (remainder === 0) {
 		<h2 class="h2 text-center">Specific Distinctives</h2>
 	</div>
 
-	<div class="mx-auto mt-20 grid w-full gap-x-10 gap-y-3 lg:grid-cols-2 xl:gap-x-24">
+	<div class="mx-auto mt-20 grid w-full gap-x-10 gap-y-3 lg:grid-cols-1 xl:gap-x-24">
 		{
-			faqCols.map((faqCol) => (
+			distinctivesData.map((faq) => (
 				<div class="flex w-full flex-col gap-10">
-					{faqCol.map(({ question, answer }, idx) => (
-						<FaqCard {question} {answer} />
-					))}
+					<FaqCard question={faq.question} answer={faq.answer} />
 				</div>
 			))
 		}
