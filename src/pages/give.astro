@@ -3,7 +3,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 import FeatureCard from "@components/FeatureCard/FeatureCardMedium.astro";
-import { undefined } from "astro:schema";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
