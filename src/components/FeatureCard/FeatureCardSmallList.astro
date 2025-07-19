@@ -10,14 +10,19 @@
 
 import { Icon } from "astro-icon/components";
 
+interface MapLinks {
+	href: string;
+	icon: string;
+}
 interface Props {
 	icon: string;
 	title: string;
 	text: string[];
+	links: MapLinks[];
 	rest?: any; // catch-all for any additional parameters, such as "aria-label"
 }
 
-const { icon, title, text, ...rest } = Astro.props as Props;
+const { icon, title, text, links, ...rest } = Astro.props as Props;
 ---
 
 <div {...rest}>
@@ -34,9 +39,16 @@ const { icon, title, text, ...rest } = Astro.props as Props;
 		</div>
 
 		<p class="description mt-2">
-			{text.map((t) => (
-				<p>{t}</p>
-			))}
+			{
+				text.map((t) => (
+					<p>{t}</p>
+				))
+			}
+			{
+				links.map((ml) => (
+					<a href={ml.href} target="_blank"><Icon name={ml.icon} class="w-5 h-5 inline" /></a>
+				))
+			}
 		</p>
 	</div>
 </div>

@@ -1,7 +1,6 @@
 ---
 import FeatureCardSmall from "@components/FeatureCard/FeatureCardSmall.astro";
 import FeatureCardSmallList from "@components/FeatureCard/FeatureCardSmallList.astro";
-import Leaflet from "@components/Maps/Leaflet.astro";
 import mainImage from "@images/church-main-guitar.jpg";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
@@ -11,12 +10,16 @@ import { Image } from "astro:assets";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
+interface Links {
+	href: string;
+	icon: string;
+}
 interface ServiceTime {
 	title: string; // the number to showcase
 	text: string[]; // description below the number
 	icon: string;
+	links: Links[];
 }
-
 
 const serviceTimes: ServiceTime[] = [
 	{
@@ -25,6 +28,7 @@ const serviceTimes: ServiceTime[] = [
 			"11:00 am to 12:00 pm"
 		],
 		icon: 'tabler/clock-hour-11',
+		links: [],
 	},
 	{
 		title: "Location",
@@ -33,6 +37,16 @@ const serviceTimes: ServiceTime[] = [
 			"Troutdale, Oregon, 97060",
 		],
 		icon: 'tabler/map',
+		links: [
+			{
+				href: "https://maps.apple/p/xxh1NHS.cEc-kX",
+				icon: "tabler/brand-apple",
+			},
+			{
+				href: "https://maps.app.goo.gl/d6qTxwhPZMCKeryh6",
+				icon: "tabler/brand-google",
+			},
+		],
 	},
 ]
 
@@ -97,18 +111,19 @@ const whatToExpect: WhatToExpect[] = [
 		/>
 	</section>
 
-	<section id="feature-cards-small" class="bg-base-200 dark:bg-base-900 py-24 md:py-28">
+	<section id="location" class="bg-base-200 dark:bg-base-900 py-24 md:py-28">
 		<div class="site-container">
 			<div class="mx-auto mb-16 text-center md:max-w-2xl" data-aos="fade-up">
 				<h2 class="h2 mb-4">Worship Service</h2>
 			</div>
-			<div id="trigger-small-cards" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-2 lg:place-items-center">
+			<div id="trigger-small-cards" class="grid gap-4 sm:grid-cols-2 place-items-center lg:items-start">
 				{
 					serviceTimes.map((feature, idx) => (
 						<FeatureCardSmallList
 							title={feature.title}
 							text={feature.text}
 							icon={feature.icon}
+							links={feature.links}
 							data-aos="zoom-in"
 							data-aos-delay={0.15 * idx}
 							data-aos-trigger="#trigger-small-cards"
@@ -116,18 +131,10 @@ const whatToExpect: WhatToExpect[] = [
 					))
 				}
 			</div>
-			<!-- <Leaflet client:only="react" /> -->
-			<!-- <Image  />
-				src={mainImage}
-				alt="logo"
-				loading="lazy"
-				height={800}
-				class="z-10 mx-auto rounded-xl mt-10"
-			/> -->
 		</div>
 	</section>
 
-	<section id="feature-cards-small" class="py-24 md:py-28">
+	<section id="expectations" class="py-24 md:py-28">
 		<div class="site-container relative">
 			<div class="mx-auto mb-16 text-center md:max-w-2xl" data-aos="fade-up">
 				<h2 class="h2 mb-4">What to Expect</h2>

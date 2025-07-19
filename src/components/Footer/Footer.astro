@@ -1,15 +1,22 @@
 ---
-import Button from "@components/Button/Button.astro";
+import ChurchCenterLogo from '@assets/images/church-center-logo.svg';
 import FooterLink from "@components/Footer/FooterLink.astro";
 import SiteLogo from "@components/SiteLogo/SiteLogo.astro";
 import SocialIcon from "@components/SocialIcon/SocialIcon.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
+import { Icon } from "astro-icon/components";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
 
 const today = new Date();
+
+const address = "921 Buxton Ave, Troutdale, Oregon"
+const email = "info@troutdalechurch.org";
+const mailto = `mailto:${email}?subject=Contact from Pleasant Home Website`
+const phone = "(503) 666-5617"
+const tel = "tel: +15036665617"
 ---
 
 <footer class="overflow-clip pt-24 pb-16">
@@ -20,15 +27,20 @@ const today = new Date();
 					<div class="max-w-m">
 						<SiteLogo />
 						<p class="mt-11 tracking-tight">
-							A template for the next killer SaaS. Multiple pages and sections, blog, i18n,
-							animations, CMS - all ready to go.
+							<p>{(<Icon name="tabler/map-pin" class="w-5 h-5 inline" />)} {address}</p>
+          					<p>{(<Icon name="tabler/mail" class="w-5 h-5 inline" />)} <a href={mailto} set:html={email} /></p>
+          					<p>{(<Icon name="tabler/phone" class="w-5 h-5 inline" />)} <a href={tel} set:html={phone} /></p>
+          					<br />
+							<a href="https://troutdalechurch.churchcenter.com/" target="_blank"
+								><ChurchCenterLogo width="300" height="87" style="display: inline;" /></a
+							>
 						</p>
 					</div>
 				</div>
 				<div class="w-full p-2 md:w-1/2">
 					<div class="flex flex-wrap justify-between">
 						<!-- first links column -->
-						<div class="w-auto p-8">
+						<!-- <div class="w-auto p-8">
 							<h3 class="text-base-700/80 dark:text-base-400/80 mb-12 font-semibold tracking-tight">
 								Landing Pages
 							</h3>
@@ -47,10 +59,10 @@ const today = new Date();
 									>
 								</li>
 							</ul>
-						</div>
+						</div> -->
 
 						<!-- second links column -->
-						<div class="w-auto p-8">
+						<!-- <div class="w-auto p-8">
 							<h3 class="text-base-700/80 dark:text-base-400/80 mb-12 font-semibold tracking-tight">
 								Sections
 							</h3>
@@ -76,10 +88,10 @@ const today = new Date();
 									>
 								</li>
 							</ul>
-						</div>
+						</div> -->
 
 						<!-- third links column -->
-						<div class="w-auto p-8">
+						<!-- <div class="w-auto p-8">
 							<h3 class="text-base-700/80 dark:text-base-400/80 mb-12 font-semibold tracking-tight">
 								Forms
 							</h3>
@@ -99,7 +111,7 @@ const today = new Date();
 									>
 								</li>
 							</ul>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
@@ -114,7 +126,7 @@ const today = new Date();
 				</div>
 				<div class="w-auto p-4">
 					<!-- Socials -->
-					<div class="flex flex-col">
+					<!-- <div class="flex flex-col">
 						<div class="flex gap-5">
 							<SocialIcon
 								href="https://twitter.com/BowTiedWebReapr"
@@ -132,7 +144,7 @@ const today = new Date();
 								social="google"
 							/>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
