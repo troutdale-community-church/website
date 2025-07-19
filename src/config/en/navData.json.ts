@@ -17,7 +17,7 @@ const navConfig: navItem[] = [
 		dropdown: [
 			{
 				text: "What We Believe",
-				link: "/overview",
+				link: "/beliefs",
 			},
 			{
 				text: "Leadership and Staff",

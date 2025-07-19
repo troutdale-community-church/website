@@ -10,7 +10,7 @@ import { getTranslatedData } from "@js/translationUtils";
 
 import FaqCard from "./FaqCard.astro";
 const currLocale = getLocaleFromUrl(Astro.url);
-const faqData = getTranslatedData("faqData", currLocale);
+const faqData = getTranslatedData("beliefsData", currLocale);
 
 type FaqCols = FaqItem[];
 
@@ -36,10 +36,10 @@ if (remainder === 0) {
 <section id="faq-cards" class="site-container py-24 md:py-28">
 	<div class="mx-auto flex max-w-xl flex-col items-center">
 		<!-- <Badge>FAQ</Badge> -->
-		<h2 class="h2 text-center">Frequently Asked Questions</h2>
-		<p class="description md:text-lg">
+		<h2 class="h2 text-center">What We Believe</h2>
+		<!-- <p class="description md:text-lg">
 			Still have doubts? Here's everything we think you should know.
-		</p>
+		</p> -->
 	</div>
 
 	<div class="mx-auto mt-20 grid w-full gap-x-10 gap-y-3 lg:grid-cols-2 xl:gap-x-24">
