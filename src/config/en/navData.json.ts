@@ -21,7 +21,7 @@ const navConfig: navItem[] = [
 			},
 			{
 				text: "Leadership and Staff",
-				link: "/overview",
+				link: "/leadership-staff",
 			},
 		]
 	},
