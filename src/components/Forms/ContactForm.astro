@@ -14,52 +14,44 @@ import Button from "@components/Button/Button.astro";
 	<form
 		id="contact-form"
 		name="contact"
+		action="https://api.web3forms.com/submit"
 		class="dark:bg-base-900 flex flex-col gap-4 rounded-2xl bg-white p-8 shadow-lg"
 	>
-		<input type="hidden" name="form-name" value="contact" />
+		<input type="hidden" name="access_key" value="017fc5f7-02fe-4de2-a578-28e7c69290b3" />
+		<input type="hidden" name="redirect" value="https://www.troutdalechurch.org/thanks" />
+		<input type="hidden" name="subject" value="Contact Form from Troutdale Church Website" />
+		<input type="hidden" name="from_name" value="troutdalechurhc.org" />
 		<div>
 			<div class="flex flex-col">
-				<label for="contact-fname" class="form__label">Full Name</label>
+				<label for="contact-name" class="form__label">Name</label>
 				<input
 					type="text"
 					class="form__input"
-					name="fname"
-					id="contact-fname"
-					placeholder="first name"
+					name="name"
+					id="contact-name"
+					placeholder="Your Name"
 					required
 				/>
 			</div>
 		</div>
 		<div>
-			<label for="contact-email" class="form__label mb-1">Email Address</label>
+			<label for="contact-email" class="form__label mb-1">Email</label>
 			<input
 				type="email"
 				class="form__input"
 				name="email"
 				id="contact-email"
 				inputmode="email"
-				placeholder="preferred contact email"
+				placeholder="Preferred contact email"
 				required
 			/>
 		</div>
 		<div>
-			<label for="contact-phone" class="form__label mb-1">Phone Number</label>
-			<input
-				type="tel"
-				class="form__input"
-				name="phone"
-				id="contact-phone"
-				inputmode="tel"
-				placeholder="phone number"
-				required
-			/>
-		</div>
-		<div>
-			<label for="contact-services" class="form__label mb-1">Message</label>
+			<label for="contact-message" class="form__label mb-1">Message</label>
 			<textarea
-				name="services"
+				name="Message"
 				class="form__input"
-				id="contact-services"
+				id="contact-message"
 				rows="4"
 				placeholder="Reason for contacting us"
 				required></textarea>
