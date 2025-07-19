@@ -8,9 +8,12 @@ import { Icon } from "astro-icon/components";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
+const metadata = {
+  title: `Contact - ${siteData.title}`,
+};
 ---
 
-<BaseLayout title="Contact Me" description="Get in touch! Contact us using this page.">
+<BaseLayout title={metadata.title} description={siteData.description}>
 	<div class="site-container mt-16">
 		<section class="overflow-hidden py-24 lg:py-28">
 			<div class="-m-8 flex flex-wrap">

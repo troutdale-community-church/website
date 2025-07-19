@@ -37,14 +37,14 @@ const navConfig: navItem[] = [
 	// 	text: "Events",
 	// 	link: "/overview",
 	// },
-	// {
-	// 	text: "Give",
-	// 	link: "/overview",
-	// },
-	// {
-	// 	text: "Contact",
-	// 	link: "/overview",
-	// },
+	{
+		text: "Give",
+		link: "/give",
+	},
+	{
+		text: "Contact",
+		link: "/contact",
+	},
 
 	// mega menu
 	// {

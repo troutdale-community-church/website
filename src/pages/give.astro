@@ -1,0 +1,76 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { getTranslatedData } from "@js/translationUtils";
+import FeatureCard from "@components/FeatureCard/FeatureCardMedium.astro";
+import { undefined } from "astro:schema";
+
+const currLocale = getLocaleFromUrl(Astro.url);
+const siteData = getTranslatedData("siteData", currLocale);
+const metadata = {
+  title: `Give - ${siteData.title}`,
+};
+
+interface FeatureData {
+	icon: string;
+	title: string;
+	text: string;
+	button?: string; // text of button
+	href: string; // link to learn more
+  target?: string;
+}
+
+const featureData: FeatureData[] = [
+	{
+		icon: "tabler/cloud-dollar",
+		title: "Give",
+		text: "Thank you for supporting us!",
+		button: "Online",
+		href: "https://troutdalechurch.churchcenter.com/giving",
+    target: "_blank",
+	},
+	{
+		icon: "tabler/hand-stop",
+		title: "Volunteer",
+		text: "We are always in need of help.  If you have an interest in serving please contact us.",
+		button: "Contact",
+		href: "/contact",
+	},
+	{
+		icon: "tabler/pray",
+		title: "Pray",
+		text: "Rejoice always, pray without ceasing give thanks in all circumstances; for this is the will of God in Christ Jesus for you.<br /><b>1 Thessalonians 5:16-18</b>",
+		href: "/signup",
+	},
+];
+---
+
+<BaseLayout title={metadata.title} description={siteData.description}>
+    <section class="site-container mx-auto mt-16 py-24">
+      <div class="mb-16 text-center">
+        <h1 class="h1 mb-4">Donate</h1>
+        <p class="description mb-8 text-lg md:text-xl text-pretty">
+          <span class="italic">Whoever sows sparingly will also reap sparingly, and whoever sows generously will also reap generously.<br/>Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion,<br />for God loves a cheerful giver.</span><br />
+          <b>2 Corinthians 9:6-8</b>
+        </p>
+      </div>
+    </section>
+    <section id="feature-cards-medium" class="overflow-hidden py-12 md:py-20">
+      <div class="site-container">
+        <div id="trigger-medium-cards" class="grid gap-4 md:grid-cols-3" data-aos="fade-left">
+          {
+            featureData.map((feature, idx) => (
+              <FeatureCard
+                title={feature.title}
+                text={feature.text}
+                icon={feature.icon}
+                button={feature.button}
+                href={feature.href}
+                target={feature.target}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+</BaseLayout>
