@@ -1,33 +1,38 @@
 ---
 import FeatureCardSmall from "@components/FeatureCard/FeatureCardSmall.astro";
+import FeatureCardSmallList from "@components/FeatureCard/FeatureCardSmallList.astro";
+import Leaflet from "@components/Maps/Leaflet.astro";
 import mainImage from "@images/church-main-guitar.jpg";
-import churchMap from "@images/paint-swatches.jpg";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 
+
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
 interface ServiceTime {
 	title: string; // the number to showcase
-	description: string[]; // description below the number
+	text: string[]; // description below the number
+	icon: string;
 }
 
 
 const serviceTimes: ServiceTime[] = [
 	{
 		title: "Sunday Morning",
-		description: [
+		text: [
 			"11:00 am to 12:00 pm"
 		],
+		icon: 'tabler/clock-hour-11',
 	},
 	{
 		title: "Location",
-		description: [
+		text: [
 			"921 Buxton Ave",
 			"Troutdale, Oregon, 97060",
 		],
+		icon: 'tabler/map',
 	},
 ]
 
@@ -55,11 +60,11 @@ const whatToExpect: WhatToExpect[] = [
           'The preaching will be expository from the Bible, and you will be challenged, encouraged, and edified.',
         icon: 'tabler/bible',
       },
-      {
-        title: "Children's Church",
-        text: "Children's Church is offered for children up to 5th grade.",
-        icon: 'tabler/monkeybar',
-      },
+    //   {
+    //     title: "Children's Church",
+    //     text: "Children's Church is offered for children up to 5th grade.",
+    //     icon: 'tabler/monkeybar',
+    //   },
       {
         title: 'Casual Dress',
         text: 'Most members wear casual to dressy-casual attire.',
@@ -97,51 +102,28 @@ const whatToExpect: WhatToExpect[] = [
 			<div class="mx-auto mb-16 text-center md:max-w-2xl" data-aos="fade-up">
 				<h2 class="h2 mb-4">Worship Service</h2>
 			</div>
-			<div class="-m-8 grid md:grid-cols-2 lg:items-center">
-				<div class="w-full p-8">
-					<div class="md:max-w-lg">
-						<div class="-m-8 flex flex-wrap" id="feature-steps-trigger">
-							{
-								serviceTimes.map((feature, idx) => (
-									<div
-										class="w-full p-8"
-										data-aos="fade-right"
-										data-aos-trigger="#feature-steps-trigger"
-										data-aos-delay={0.25 * idx}
-									>
-										<div class="-m-8 flex flex-wrap">
-											<div class="flex-1 p-8">
-												<div class="md:max-w-md">
-													<h3 class="text-base-900 dark:text-base-100 mb-4 text-xl font-semibold tracking-tight">
-														{feature.title}
-													</h3>
-													<p class="text-base-400 dark:text-base-300 text-xl tracking-tight">
-														{
-															feature.description.map((desc) => (
-																<p>{desc}</p>
-															))
-														}
-													</p>
-												</div>
-											</div>
-										</div>
-									</div>
-								))
-							}
-						</div>
-					</div>
-				</div>
-				<div class="w-full p-8">
-					<Image
-						src={churchMap}
-						class="mx-auto transform rounded-2xl transition duration-500 hover:-translate-y-1"
-						alt="map to Troutdale Community Church"
-						loading="lazy"
-						width={510}
-						densities={[1.5, 2]}
-					/>
-				</div>
+			<div id="trigger-small-cards" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-2 lg:place-items-center">
+				{
+					serviceTimes.map((feature, idx) => (
+						<FeatureCardSmallList
+							title={feature.title}
+							text={feature.text}
+							icon={feature.icon}
+							data-aos="zoom-in"
+							data-aos-delay={0.15 * idx}
+							data-aos-trigger="#trigger-small-cards"
+						/>
+					))
+				}
 			</div>
+			<!-- <Leaflet client:only="react" /> -->
+			<!-- <Image  />
+				src={mainImage}
+				alt="logo"
+				loading="lazy"
+				height={800}
+				class="z-10 mx-auto rounded-xl mt-10"
+			/> -->
 		</div>
 	</section>
 
@@ -156,7 +138,7 @@ const whatToExpect: WhatToExpect[] = [
 					We invite you to come and worship with us.
 				</p>
 			</div>
-			<div id="trigger-small-cards" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			<div id="trigger-small-cards" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:place-items-center">
 				{
 					whatToExpect.map((feature, idx) => (
 						<FeatureCardSmall
