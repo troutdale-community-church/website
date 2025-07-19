@@ -10,7 +10,7 @@ import { getTranslatedData } from "@js/translationUtils";
 import { Icon } from "astro-icon/components";
 
 const currLocale = getLocaleFromUrl(Astro.url);
-const faqData = getTranslatedData("faqData", currLocale);
+// const faqData = getTranslatedData("faqData", currLocale);
 ---
 
 <section id="faq-accordions" class="overflow-hidden py-24 md:py-28">
@@ -25,7 +25,7 @@ const faqData = getTranslatedData("faqData", currLocale);
       </p> -->
 		</div>
 		<div class="flex flex-col gap-3" data-aos="fade-left">
-			{faqData.map(({ question, answer }) => <Accordion title={question} details={answer} />)}
+			<!-- {faqData.map(({ question, answer }) => <Accordion title={question} details={answer} />)} -->
 		</div>
 	</div>
 </section>
