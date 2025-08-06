@@ -29,10 +29,10 @@ const navConfig: navItem[] = [
 	// 	text: "Ministries",
 	// 	link: "/overview",
 	// },
-	// {
-	// 	text: "Sermons",
-	// 	link: "/overview",
-	// },
+	{
+		text: "Sermons",
+		link: "/sermons",
+	},
 	// {
 	// 	text: "Events",
 	// 	link: "/overview",

@@ -1,9 +1,9 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import { getLocaleFromUrl } from "@js/localeUtils";
-import { getTranslatedData } from "@js/translationUtils";
 import BeliefsCards from "@components/Faq/BeliefsCards.astro";
 import DistinctivesCards from "@components/Faq/DistinctivesCards.astro";
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { getTranslatedData } from "@js/translationUtils";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
@@ -13,7 +13,6 @@ const metadata = {
 ---
 
 <BaseLayout title={metadata.title} description={siteData.description}>
-    <hr class="pt-10" />
     <BeliefsCards />
     <DistinctivesCards />
 </BaseLayout>

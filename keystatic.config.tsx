@@ -24,7 +24,7 @@ export default config({
 		brand: { name: "Troutdale Community Church" },
 	},
 	collections: {
-		blogEN: Collections.Blog("en"),
+		// blogEN: Collections.Blog("en"),
 
 		// for now there is a limitation with keystatic where relationship fields don't work well with i18n features
 		// If you need multiple languages here (you might not) just create multiple variants of the same author

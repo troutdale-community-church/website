@@ -1,0 +1,26 @@
+---
+import SermonCard from "@components/SermonCard/SermonCard.astro";
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { getAllSermons } from "@js/sermonUtils";
+import { getTranslatedData } from "@js/translationUtils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const currLocale = getLocaleFromUrl(Astro.url);
+const siteData = getTranslatedData("siteData", currLocale);
+const metadata = {
+  title: `Sermons - ${siteData.title}`,
+};
+const sermons = await getAllSermons();
+---
+
+<BaseLayout title={metadata.title} description={siteData.description}>
+	<section class="site-container mx-auto mt-16 py-24">
+		<div class="mb-16 text-center">
+			<h2 class="h2 text-center">Sermons</h2>
+		</div>
+		
+		<div class="mt-20  grid gap-8 gap-y-10 md:grid-cols-2 md:gap-16 lg:grid-cols-3">
+			{sermons.map((sermon) => <SermonCard sermon={sermon} data-aos="fade-up" />)}
+		</div>
+	</section>
+</BaseLayout>

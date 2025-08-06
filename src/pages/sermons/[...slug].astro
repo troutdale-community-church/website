@@ -1,0 +1,38 @@
+---
+import SermonCard from "@components/SermonCard/SermonCard.astro";
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { getAllSermons } from "@js/sermonUtils";
+import { formatDate } from "@js/textUtils";
+import { getTranslatedData } from "@js/translationUtils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { type InferGetStaticPropsType } from "astro";
+
+export async function getStaticPaths() {
+	const sermons = await getAllSermons();
+
+	return sermons.map((sermon) => ({
+		params: { slug: sermon.id },
+		props: sermon,
+	}));
+}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const sermon = Astro.props as Props;
+
+const currLocale = getLocaleFromUrl(Astro.url);
+const siteData = getTranslatedData("siteData", currLocale);
+const metadata = {
+  title: `Sermons - ${siteData.title}`,
+};
+---
+
+<BaseLayout title={metadata.title} description={siteData.description}>
+	<section class="site-container mx-auto mt-16 py-24">
+		<div class="mb-16 text-center">
+			<h3 class="h1 mb-4">{sermon.data.fullTitle}</h3>
+			<p class="description mb-8 text-lg md:text-xl">
+				<span class="italic">{sermon.data.speaker.displayName}</span>
+			</p>
+			<p>{formatDate(sermon.data.preachDate, currLocale)}</p>
+		</div>
+</BaseLayout>
