@@ -1,0 +1,29 @@
+---
+import { type CollectionEntry } from "astro:content";
+import AudioPlayer from 'react-h5-audio-player';
+// import 'react-h5-audio-player/lib/styles.css';
+
+interface Props {
+	sermon: CollectionEntry<"sermons">;
+	class?: string;
+	rest?: any; // catch-all for any additional parameters, such as "aria-label"
+}
+
+interface MediaAudio {
+    bitrate?: number;
+    streamUrl?: string;
+}
+
+const { sermon, class: className, ...rest } = Astro.props as Props;
+const audio:MediaAudio = sermon.data.media.audio.reduce((acc, audio) => {
+    if (audio.bitrate && audio.bitrate >= audio.bitrate) {
+        return audio;
+    }
+
+    return acc;
+}, {bitrate: -1});
+---
+
+<div>
+    <AudioPlayer client:load src={audio.streamUrl} />
+</div>
