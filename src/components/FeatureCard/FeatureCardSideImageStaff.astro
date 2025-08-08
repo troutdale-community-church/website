@@ -37,9 +37,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 			<ul class="mt-6">
 				{
 					items.map((item) => (
-						<li class="description mt-4 flex items-center">
-							<span>{item}</span>
-						</li>
+						<li class="description text-center mt-4 flex items-center">{item}</li>
 					))
 				}
 			</ul>
