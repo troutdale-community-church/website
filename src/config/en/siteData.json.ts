@@ -25,7 +25,7 @@ const siteData: SiteDataProps = {
 
 	// default image for meta tags if the page doesn't have an image already
 	defaultImage: {
-		src: "/_astro/church-main-guitar.BnZ1drYD_Z28kLVG.webp",
+		src: "/_astro/cherrywood-church.BLe4yKkz_1d1nT3.webp",
 		alt: "Church Picture",
 	},
 };
