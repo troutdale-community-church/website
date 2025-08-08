@@ -38,6 +38,10 @@ const navConfig: navItem[] = [
 	// 	link: "/overview",
 	// },
 	{
+		text: "Counseling",
+		link: "/counseling",
+	},
+	{
 		text: "Give",
 		link: "/give",
 	},

@@ -1,9 +1,9 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import ryanWethern from "@assets/images/pastor-ryan-wethern-cropped.jpg";
+import FeatureCardSideImageStaff from "@components/FeatureCard/FeatureCardSideImageStaff.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
-import FeatureCardSideImageStaff from "@components/FeatureCard/FeatureCardSideImageStaff.astro";
-import ryanWethern from "@assets/images/pastor-ryan-wethern.jpg";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
@@ -26,11 +26,29 @@ const items: StaffItem[] = [
   {
     badge: "Senior Paster",
     title: "Ryan Wethern",
-    items: ["I have been married to my wife, Becky, since January 2006, and we have four children. From 2006 to 2013, I served in youth ministry in Reno, NV, and it was there that I realized my need for more training. Upon moving to Southern California, I completed my undergraduate degree in Biblical Counseling at The Master's University (2016) and my Master of Divinity at The Master's Seminary (2020). I am ACBC Certified, loves the Word of God, and seeks to teach its sufficiency and power to transform lives. I enjoy basketball, motocross, and playing fun games with my family."],
+    items: [
+      // "I have been married to my wife, Becky, since January 2006, and we have four children. From 2006 to 2013, I served in youth ministry in Reno, NV, and it was there that I realized my need for more training. Upon moving to Southern California, I completed my undergraduate degree in Biblical Counseling at The Master's University (2016) and my Master of Divinity at The Master's Seminary (2020). I am ACBC Certified, loves the Word of God, and seeks to teach its sufficiency and power to transform lives. I enjoy basketball, motocross, and playing fun games with my family.",
+      "When TCC's retiring pastor needed to find a new pastor to take his place, he reached out to Pleasant Home Community Church for help. Having a heart for planting and strengthening churches, the elders at PHCC sent Pastor Ryan to be our new pastor and bring new life to our congregation.",
+      "Pastor Ryan has been married to Becky, since January 2006, and they have four children. From 2006 to 2013, he served in youth ministry in Reno, NV, and it was there that he recognized his need for more training. Upon moving to Southern California, he completed his undergraduate degree in Biblical Counseling at The Master's University (2016) and his Master of Divinity at The Master's Seminary (2020). In addition, he is an ACBC certified counselor. In 2021, Pastor Ryan joined Pleasant Home Community Church as the Associate Pastor where he served from February 2021 to September 2025.",
+      "Pastor Ryan loves the expository preaching of God's Word and seeks to teach its sufficiency and power to transform lives.",
+    ],
     image: ryanWethern,
     imageSide: "right",
     idx: 0,
   },
+  // {
+  //   badge: "Elder",
+  //   title: "Gary Brumbelow",
+  //   items: [
+  //     // "I have been married to my wife, Becky, since January 2006, and we have four children. From 2006 to 2013, I served in youth ministry in Reno, NV, and it was there that I realized my need for more training. Upon moving to Southern California, I completed my undergraduate degree in Biblical Counseling at The Master's University (2016) and my Master of Divinity at The Master's Seminary (2020). I am ACBC Certified, loves the Word of God, and seeks to teach its sufficiency and power to transform lives. I enjoy basketball, motocross, and playing fun games with my family.",
+  //     // "When TCC's retiring pastor needed to find a new pastor to take his place, he reached out to Pleasant Home Community Church for help. Having a heart for planting and strengthening churches, the elders at PHCC sent Pastor Ryan to be our new pastor and bring new life to our congregation.",
+  //     // "Pastor Ryan has been married to Becky, since January 2006, and they have four children. From 2006 to 2013, he served in youth ministry in Reno, NV, and it was there that he recognized his need for more training. Upon moving to Southern California, he completed his undergraduate degree in Biblical Counseling at The Master's University (2016) and his Master of Divinity at The Master's Seminary (2020). In addition, he is an ACBC certified counselor. In 2021, Pastor Ryan joined Pleasant Home Community Church as the Associate Pastor where he served from February 2021 to September 2025.",
+  //     // "Pastor Ryan loves the expository preaching of God's Word and seeks to teach its sufficiency and power to transform lives.",
+  //   ],
+  //   image: ryanWethern,
+  //   imageSide: "left",
+  //   idx: 0,
+  // },
 ]
 ---
 

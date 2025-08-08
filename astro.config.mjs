@@ -15,6 +15,7 @@ export default defineConfig({
 	adapter: cloudflare({ imageService: "compile" }),
 	redirects: {
 		"/admin": "/keystatic",
+		"/counseling": "https://biblicare.net/Site/Access/Login?KeyID=EBCAC141-1224-490B-B7F5-35027166",
 	},
 	// i18n configuration must match src/config/translations.json.ts
 	i18n: {
