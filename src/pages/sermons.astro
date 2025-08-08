@@ -1,0 +1,28 @@
+---
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { getTranslatedData } from "@js/translationUtils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const currLocale = getLocaleFromUrl(Astro.url);
+const siteData = getTranslatedData("siteData", currLocale);
+const metadata = {
+  title: `Sermons - ${siteData.title}`,
+};
+---
+
+<BaseLayout title={metadata.title} description={siteData.description}>
+    <section class="site-container mx-auto mt-16 py-24">
+      <div class="mb-16 text-center">
+        <h1 class="h1">Sermons</h1>
+      </div>
+    </section>
+    <section>
+      <iframe 
+        title="SermonAudio" 
+        tabindex="-1" 
+        width="1"
+        height="960"
+        src="https://embed.sermonaudio.com/browser/broadcaster/troutdalechurch/?sort=newest&page_size=25&style=compact&rounded=true&external_borders=false"
+        class="lg:w-5xl md:w-3xl sm:w-xl xs:w-full mx-auto" />
+    </section>
+</BaseLayout>
