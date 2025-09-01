@@ -1,0 +1,29 @@
+---
+import MinistryCard from "@components/MinistryCard/MinistryCardNova.astro";
+import { getAllMinistries } from "@js/ministryUtils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const ministries = await getAllMinistries();
+---
+
+<BaseLayout
+	title="Our Blog Posts"
+	description="Learn from our blog posts about web development, design, and more."
+>
+	<section class="site-container">
+		<div class="overflow-x-clip pt-28 md:pt-36">
+			<div class="mx-auto flex max-w-[950px] flex-col justify-center">
+				<h1 class="h1 text-center">Ministries</h1>
+				
+			</div>
+
+			<div class="mt-8 mb-10 flex justify-center md:mb-20">
+				<!-- <CategoryCloud /> -->
+			</div>
+		</div>
+
+		<div class="grid gap-8 gap-y-10 md:grid-cols-2 md:gap-16 lg:grid-cols-3">
+			{ministries.map((ministry) => <MinistryCard ministry={ministry} showDescription={false} data-aos="fade-up" />)}
+		</div>
+	</section>
+</BaseLayout>

@@ -1,0 +1,70 @@
+---
+import Button from "@components/Button/Button.astro";
+import Category from "@components/Category/Category.astro";
+import { formatDate, humanize, slugify } from "@js/textUtils";
+import { Image } from "astro:assets";
+import { type CollectionEntry, getEntries } from "astro:content";
+
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+	ministry: CollectionEntry<"ministries">;
+	headings?: import("astro").MarkdownHeading[];
+}
+
+const { ministry } = Astro.props as Props;
+const { title, description, heroImage } = ministry.data;
+---
+
+<BaseLayout
+	type="ministry"
+	title={title}
+	description={description}
+	image={heroImage}
+>
+	<article class="site-container mt-24">
+		<!-- Blog post info -->
+		<div class="flex w-full flex-col items-center">
+			<div class="mx-auto flex w-full max-w-[800px]">
+				<div class="mx-auto text-center">
+					<!-- title -->
+					<h1 class="h1 mt-6">{title}</h1>
+
+					<div class="description mt-6 flex w-full flex-wrap justify-center gap-3">
+					</div>
+				</div>
+			</div>
+
+			<!-- blog post main image -->
+			<div class="mt-6 max-w-[1000px] overflow-hidden">
+				<Image
+					src={heroImage}
+					alt={`Cover for ${title}`}
+					width={2000}
+					quality="high"
+					class="max-h-[90vh] rounded-xl object-cover"
+					loading="eager"
+					format="webp"
+				/>
+			</div>
+		</div>
+
+		<!-- article content -->
+		<div class="mt-10 w-full">
+			<div class="mx-auto max-w-2xl">
+				<div class="text-base-content text-base">
+					<section id="blog-post-content" class="markdown-content mx-auto">
+						<slot />
+					</section>
+
+					<!-- button to go back to all posts -->
+					<div class="mt-16 flex justify-center">
+						<Button variant="ghost" arrow="left" href={"/ministries"}>
+							Back to all ministries
+						</Button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
+</BaseLayout>

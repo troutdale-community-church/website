@@ -8,7 +8,11 @@
  */
 
 // types
+import { getAllMinistries } from "@js/ministryUtils";
+
 import { type navItem } from "../types/configDataTypes";
+
+const ministries = await getAllMinistries();
 
 // note: 1 level of dropdown is supported
 const navConfig: navItem[] = [
@@ -25,10 +29,10 @@ const navConfig: navItem[] = [
 			},
 		]
 	},
-	// {
-	// 	text: "Ministries",
-	// 	link: "/overview",
-	// },
+	{
+		text: "Ministries",
+		dropdown: ministries.map((ministry) => ({ text: ministry.data.title, link: `/ministries/${ministry.id}` })),
+	},
 	{
 		text: "Sermons",
 		link: "/sermons",

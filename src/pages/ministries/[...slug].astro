@@ -1,0 +1,24 @@
+---
+import ExternalLink from "@components/MarkdownComponents/ExternalLink.astro";
+import { getAllMinistries } from "@js/ministryUtils";
+import MinistryLayoutCenter from "@layouts/MinistryLayoutCenter.astro";
+import { type InferGetStaticPropsType } from "astro";
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+	const ministries = await getAllMinistries();
+
+	return ministries.map((ministry) => ({
+		params: { slug: ministry.id },
+		props: ministry,
+	}));
+}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const ministry = Astro.props as Props;
+const { Content, headings } = await render(ministry);
+---
+
+<MinistryLayoutCenter ministry={ministry} headings={headings}>
+	<Content components={{ a: ExternalLink }} />
+</MinistryLayoutCenter>

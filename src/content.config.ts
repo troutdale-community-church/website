@@ -2,6 +2,21 @@ import { glob } from "astro/loaders";
 import { defineCollection, reference, z } from "astro:content";
 
 // Type-check frontmatter using a schema
+const ministryCollection = defineCollection({
+	loader: glob({ pattern: "**/[^_]*{md,mdx}", base: "./src/data/ministries" }),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			heroImage: image(),
+			// mappingKey allows you to match entries across languages for SEO purposes
+			mappingKey: z.string().optional(),
+			// blog posts will be excluded from build if draft is "true"
+			draft: z.boolean().optional(),
+		}),
+});
+
+// Type-check frontmatter using a schema
 const blogCollection = defineCollection({
 	loader: glob({ pattern: "**/[^_]*{md,mdx}", base: "./src/data/blog" }),
 	schema: ({ image }) =>
@@ -213,6 +228,7 @@ const sermonsCollection = defineCollection({
 })
 
 export const collections = {
+	ministries: ministryCollection,
 	blog: blogCollection,
 	authors: authorsCollection,
 	otherPages: otherPagesCollection,
