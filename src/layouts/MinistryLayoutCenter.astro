@@ -8,12 +8,12 @@ import { type CollectionEntry, getEntries } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
+	title: string;
 	ministry: CollectionEntry<"ministries">;
-	headings?: import("astro").MarkdownHeading[];
 }
 
-const { ministry } = Astro.props as Props;
-const { title, description, heroImage } = ministry.data;
+const { title, ministry } = Astro.props as Props;
+const { description, heroImage } = ministry.data;
 ---
 
 <BaseLayout
@@ -28,7 +28,7 @@ const { title, description, heroImage } = ministry.data;
 			<div class="mx-auto flex w-full max-w-[800px]">
 				<div class="mx-auto text-center">
 					<!-- title -->
-					<h1 class="h1 mt-6">{title}</h1>
+					<h1 class="h1 mt-6">{ministry.data.title}</h1>
 
 					<div class="description mt-6 flex w-full flex-wrap justify-center gap-3">
 					</div>

@@ -1,13 +1,21 @@
 ---
 import MinistryCard from "@components/MinistryCard/MinistryCardNova.astro";
+import { getLocaleFromUrl } from "@js/localeUtils";
 import { getAllMinistries } from "@js/ministryUtils";
+import { getTranslatedData } from "@js/translationUtils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const ministries = await getAllMinistries();
+
+const currLocale = getLocaleFromUrl(Astro.url);
+const siteData = getTranslatedData("siteData", currLocale);
+const metadata = {
+  title: `Ministries - ${siteData.title}`,
+};
 ---
 
 <BaseLayout
-	title="Our Blog Posts"
+	title={metadata.title}
 	description="Learn from our blog posts about web development, design, and more."
 >
 	<section class="site-container">
