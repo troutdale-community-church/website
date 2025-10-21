@@ -12,7 +12,7 @@ const siteData: SiteDataProps = {
 	contact: {
 		address1: "348 SW Cherry Park Road",
 		address2: "Troutdale, OR 97060",
-		phone: "(503) 666-5617",
+		phone: "(503) 919-3583",
 		email: "info@troutdalechurch.org",
 	},
 
