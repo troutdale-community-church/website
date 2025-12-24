@@ -31,6 +31,14 @@ const serviceTimes: ServiceTime[] = [
 		links: [],
 	},
 	{
+		title: "Christmas Eve",
+		text: [
+			"12/24 @ 7:00 pm"
+		],
+		icon: 'tabler/north-star',
+		links: [],
+	},
+	{
 		title: "Location",
 		text: [
 			"348 SW Cherry Park Road",
@@ -116,7 +124,7 @@ const whatToExpect: WhatToExpect[] = [
 			<div class="mx-auto mb-16 text-center md:max-w-2xl" data-aos="fade-up">
 				<h2 class="h2 mb-4">Worship Service</h2>
 			</div>
-			<div id="trigger-small-cards" class="grid gap-4 sm:grid-cols-2 place-items-center lg:items-start">
+			<div id="trigger-small-cards" class="grid gap-4 sm:grid-cols-3 place-items-center lg:items-start">
 				{
 					serviceTimes.map((feature, idx) => (
 						<FeatureCardSmallList
