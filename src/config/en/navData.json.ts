@@ -53,6 +53,10 @@ const navConfig: navItem[] = [
 		text: "Contact",
 		link: "/contact",
 	},
+	{
+		text: "Online Book Store",
+		link: "https://us.10ofthose.com/partners/troutdalechurch",
+	},
 
 	// mega menu
 	// {
