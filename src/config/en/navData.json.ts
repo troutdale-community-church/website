@@ -54,7 +54,7 @@ const navConfig: navItem[] = [
 		link: "/contact",
 	},
 	{
-		text: "Online Book Store",
+		text: "Online Bookstore",
 		link: "https://us.10ofthose.com/partners/troutdalechurch",
 	},
 
