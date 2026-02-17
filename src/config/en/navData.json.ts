@@ -44,6 +44,7 @@ const navConfig: navItem[] = [
 	{
 		text: "Counseling",
 		link: "/counseling",
+		newTab: true,
 	},
 	{
 		text: "Give",
@@ -56,6 +57,7 @@ const navConfig: navItem[] = [
 	{
 		text: "Online Bookstore",
 		link: "https://us.10ofthose.com/partners/troutdalechurch",
+		newTab: true,
 	},
 
 	// mega menu
