@@ -6,6 +6,7 @@ import SocialIcon from "@components/SocialIcon/SocialIcon.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 import { Icon } from "astro-icon/components";
+import onlinebookstorelogo from '@assets/images/Visit1.png';
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
@@ -14,7 +15,7 @@ const today = new Date();
 
 const address = "348 SW Cherry Park Road, Troutdale, Oregon"
 const email = "info@troutdalechurch.org";
-const mailto = `mailto:${email}?subject=Contact from Pleasant Home Website`
+const mailto = `mailto:${email}?subject=Contact from Troutdale Church Website`
 const phone = "(503) 919-3583"
 const tel = "tel: +15039193583"
 ---
@@ -33,6 +34,7 @@ const tel = "tel: +15039193583"
           					<br />
 							<a href="https://troutdalechurch.churchcenter.com/" target="_blank"
 								><ChurchCenterLogo width="300" height="87" style="display: inline;" /></a
+							<a href="https://us.10ofthose.com/partners/troutdalechurch"><BookstoreLogo /></a>
 							>
 
 						</p>
