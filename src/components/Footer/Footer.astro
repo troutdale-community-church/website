@@ -10,7 +10,7 @@ import { Icon } from "astro-icon/components";
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
 
-const today = new Date();F
+const today = new Date();
 
 const address = "348 SW Cherry Park Road, Troutdale, Oregon"
 const email = "info@troutdalechurch.org";
@@ -27,9 +27,9 @@ const tel = "tel: +15039193583"
 					<div class="max-w-m">
 						<SiteLogo />
 						<p class="mt-11 tracking-tight">
-							<p>{(<Icon name="tabler:map-pin" class="w-5 h-5 inline" />)} {address}</p>
-          					<p>{(<Icon name="tabler:mail" class="w-5 h-5 inline" />)} <a href={mailto} set:html={email} /></p>
-          					<p>{(<Icon name="tabler:phone" class="w-5 h-5 inline" />)} <a href={tel} set:html={phone} /></p>
+							<p>{(<Icon name="tabler/map-pin" class="w-5 h-5 inline" />)} {address}</p>
+          					<p>{(<Icon name="tabler/mail" class="w-5 h-5 inline" />)} <a href={mailto} set:html={email} /></p>
+          					<p>{(<Icon name="tabler/phone" class="w-5 h-5 inline" />)} <a href={tel} set:html={phone} /></p>
           					<br />
 							<a href="https://troutdalechurch.churchcenter.com/" target="_blank"
 								><ChurchCenterLogo width="300" height="87" style="display: inline;" /></a
