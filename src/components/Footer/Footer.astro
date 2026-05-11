@@ -6,6 +6,7 @@ import SocialIcon from "@components/SocialIcon/SocialIcon.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 import { Icon } from "astro-icon/components";
+import bookstorelogo from '@assets/images/Visit1.png'
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
@@ -32,9 +33,12 @@ const tel = "tel: +15039193583"
           					<p>{(<Icon name="tabler/phone" class="w-5 h-5 inline" />)} <a href={tel} set:html={phone} /></p>
           					<br />
 							<a href="https://troutdalechurch.churchcenter.com/" target="_blank"
-								><ChurchCenterLogo width="300" height="87" style="display: inline;" /></a
-							>
-
+								<ChurchCenterLogo width="300" height="87" style="display: inline;" />
+							</a>
+							<br />
+							<a href="https://us.10ofthose.com/partners/troutdalechurch" target="_blank"
+								<img src={bookstorelogo.src} width="300" style="display: inline;" alt="Bookstore Logo" />
+							</a>
 						</p>
 					</div>
 				</div>
